@@ -1,14 +1,156 @@
+/* 全局样式 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
     margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
+
+/* 页头和页脚 */
 header, footer {
+    background-color: #e6e6fa;
+    padding: 20px;
+}
+
+/* 主体内容 */
+main {
+    padding: 40px;
+}
+
+/* 图像样式 */
+img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* 导航栏样式 */
+nav {
     background-color: #333;
-    color: white;
-    padding: 1em;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
-main {
-    padding: 2em;
+
+nav li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* 轮播图容器样式 */
+.slideshow-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center; /* 居中容器 */
+    align-items: center;
+    overflow: hidden;
+}
+
+/* 轮播图内部容器 */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* 平滑过渡 */
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* 激活的幻灯片显示 */
+.slide.active {
+    display: block;
+}
+
+/* 左右切换按钮 */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+/* 左按钮 */
+.prev {
+    left: 10px;
+}
+
+/* 右按钮 */
+.next {
+    right: 10px;
+}
+
+/* 音乐控制按钮 */
+#music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #e6e6fa;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+#music-control:hover {
+    background-color: #d8bfd8;
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+    img {
+        max-width: 100%;
+    }
+    
+    .slideshow-container {
+        width: 90%;
+    }
+
+    #music-control {
+        font-size: 12px;
+    }
 }

@@ -8,12 +8,47 @@
 <body>
     <header>
         <h1>欢迎来到我的网站</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">主页</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#gallery">图集</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </nav>
     </header>
+
     <main>
         <p>旧茶浮亦沉</p>
+
+        <!-- 轮播图容器 -->
+        <div class="slideshow-container">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <div class="slides">
+                <img class="slide" src="images/1.jpg" alt="图片1">
+                <img class="slide" src="images/2.jpg" alt="图片2">
+                <img class="slide" src="images/3.jpg" alt="图片3">
+            </div>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+
+        <p>一盏旧茶浮亦沉：</p>
+        <img src="images/11.jpg" alt="示例图片">
     </main>
+
+    <!-- 背景音乐 -->
+    <audio id="bgm" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        您的浏览器不支持音频播放。
+    </audio>
+
+    <button id="music-control">🔊 播放音乐</button>
+
     <footer>
         <p>© 2025 我的网站</p>
     </footer>
+
+    <!-- 引入轮播图脚本 -->
+    <script src="script.js"></script>
 </body>
 </html>
