@@ -19,36 +19,93 @@
     </header>
 
     <main>
-        <p>旧茶浮亦沉</p>
+        <!-- 主页 -->
+        <section id="home">
+            <h2>🏠 主页</h2>
+            <p>欢迎来到我的个人网站，这里记录着我的灵感、创作与热爱。</p>
+        </section>
 
-        <!-- 轮播图容器 -->
-        <div class="slideshow-container">
-            <button class="prev" onclick="prevSlide()">&#10094;</button>
-            <div class="slides">
-                <img class="slide" src="images/1.jpg" alt="图片1">
-                <img class="slide" src="images/2.jpg" alt="图片2">
-                <img class="slide" src="images/3.jpg" alt="图片3">
+        <!-- 关于 -->
+        <section id="about">
+            <h2>👤 关于</h2>
+            <p>我是一个热爱前端开发的创作者，擅长 HTML、CSS、JavaScript，并喜欢摄影与音乐。</p>
+        </section>
+
+        <!-- 图集 -->
+        <section id="gallery">
+            <h2>🖼️ 图集</h2>
+            <div class="slideshow-container">
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <div class="slides">
+                    <img class="slide" src="images/1.jpg" alt="图片1">
+                    <img class="slide" src="images/2.jpg" alt="图片2">
+                    <img class="slide" src="images/3.jpg" alt="图片3">
+                </div>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
             </div>
-            <button class="next" onclick="nextSlide()">&#10095;</button>
-        </div>
+        </section>
 
-        <p>一盏旧茶浮亦沉：</p>
-        <img src="images/11.jpg" alt="示例图片">
+        <!-- 联系 -->
+        <section id="contact">
+            <h2>📬 联系</h2>
+            <p>你可以通过以下方式联系我：</p>
+            <ul style="list-style: none; padding: 0;">
+                <li>📧 邮箱：example@example.com</li>
+                <li>📱 微信：your_wechat_id</li>
+                <li>🌐 GitHub: <a href="https://github.com/Sunshin818" target="_blank">Sunshin818</a></li>
+            </ul>
+        </section>
     </main>
-
+    <p>旧茶浮亦沉</p>  
+    <img src="images/11.jpg" alt="示例图片">
     <!-- 背景音乐 -->
-    <audio id="bgm" loop>
+    <audio id="bgm" loop autoplay>
         <source src="music.mp3" type="audio/mpeg">
         您的浏览器不支持音频播放。
     </audio>
-
-    <button id="music-control">🔊 播放音乐</button>
+    <button id="music-control">🔊 暂停音乐</button>
 
     <footer>
         <p>© 2025 我的网站</p>
     </footer>
 
-    <!-- 引入轮播图脚本 -->
-    <script src="script.js"></script>
+    <script>
+        // 背景音乐控制
+        const bgm = document.getElementById("bgm");
+        const controlBtn = document.getElementById("music-control");
+
+        controlBtn.addEventListener("click", () => {
+            if (bgm.paused) {
+                bgm.play();
+                controlBtn.textContent = "🔊 暂停音乐";
+            } else {
+                bgm.pause();
+                controlBtn.textContent = "🔈 播放音乐";
+            }
+        });
+
+        // 轮播图逻辑
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? "block" : "none";
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+        setInterval(nextSlide, 5000); // 自动轮播每5秒切换
+    </script>
 </body>
 </html>
